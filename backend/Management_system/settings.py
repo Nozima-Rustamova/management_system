@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'attendance',
     'chat',
     'core',
+    'rest_framework',
+    'drf_yasg',
 
 ]
 

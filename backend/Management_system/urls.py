@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.http import JsonResponse
 from django.urls import path, include
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -47,7 +48,11 @@ schema_view=get_schema_view(
     authentication_classes=[],
 )
 
+def home(request):
+    return JsonResponse({"message": "Study Center Management System API is running!"})
+
 urlpatterns = [
+    path('', home),
     path('admin/', admin.site.urls),
     path('api/core/', include('core.urls')),
     path('api/user/', include('user.urls')),
